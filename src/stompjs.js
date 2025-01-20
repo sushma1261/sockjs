@@ -93,7 +93,11 @@ publishButton.addEventListener("click", function () {
   messages.appendChild(frag);
   client.publish({
     destination: inputValue,
-    body: { messages: content },
+    // body: { messages: content },
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(JSON.parse(content)),
   });
 });
 
