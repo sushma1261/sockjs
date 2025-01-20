@@ -8,11 +8,19 @@
 </head>
 
 <body>
-  <h1>WebSocket Connection Test</h1>
+  <h3>WebSocket Connection Test</h3>
+  <input type="text" class="input-box" id="token" placeholder="Enter user token">
+  <span> <label>
+      <input type="checkbox" id="use-token"> Use Token
+    </label><button id="connect">Connect</button><button id="disconnect">Disconnect</button></span>
+
+  <div id="status" class="disconnected">Status: Disconnected</div>
+
   <input type="text" class="input-box" id="input-box" placeholder="Enter subscription path">
   <button id="subscribe">Subscribe</button>
   <input type="text" class="input-box" id="input-path-publish" placeholder="Enter sending path">
-  <textarea type="text" rows="6" id="input-content" placeholder="Enter body"></textarea>
+  <textarea type="text" rows="5" id="input-content" placeholder="Enter JSON"></textarea>
+  <div id="jsonError">Invalid JSON format</div>
   <button id="publish">Send</button>
   <h2>Messages</h2>
   <div id="messages"></div>

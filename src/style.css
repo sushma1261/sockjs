@@ -100,7 +100,8 @@ button:focus-visible {
 
 .input-box {
   width: 500px;
-  height: 50px;
+  height: 30px;
+  border-radius: 8px;
   font-size: large;
   padding-left: 10px;
   margin-bottom: 10px;
@@ -112,6 +113,7 @@ textarea {
   font-size: large;
   padding-left: 10px;
   margin-bottom: 10px;
+  border-radius: 8px;
 }
 
 #messages {
@@ -124,4 +126,23 @@ textarea {
   width: 80vw;
   overflow-y: scroll;
   height: 50vh;
+}
+
+#connect {
+  margin-right: 10px;
+  background-color: green;
+}
+#disconnect {
+  background-color: maroon;
+}
+
+#jsonError {
+  color: red;
+  margin-top: 5px;
+  display: none;
+}
+
+#subscribe,
+#publish {
+  background-color: #535bf2;
 }
