@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  flex-direction: column;
 }
 
 h1 {
@@ -93,4 +94,23 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+#input-box {
+  width: 500px;
+  height: 50px;
+  font-size: large;
+}
+
+#messages {
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+  border: 1px solid #f9f9f9;
+  min-width: 500px;
+  max-width: 90vw;
+  overflow-y: scroll;
+  height: 50vh;
 }

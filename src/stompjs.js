@@ -1,5 +1,5 @@
 import { Client } from "@stomp/stompjs";
-
+import "./style.css";
 const token =
   "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1NjcwNDY1MS1mYjMyLTQ0MjctOGZhNi1jYmZmNTI2YTg3NWQiLCJpYXQiOjE3MzczMzY4NjIsImV4cCI6MTczNzk0MTY2Mn0.nugMjgooq5Ad8MMmFz9SX0SEl7cXIIi7N5emO1aB06o";
 const serverUrl = "ws://localhost:8080/ws";
@@ -62,11 +62,16 @@ const client = new Client({
 sendButton.addEventListener("click", function () {
   const inputValue = inputBox.value;
   console.log(inputValue);
+  const frag = document.createDocumentFragment();
+  const div = document.createElement("div");
+  div.innerHTML = "Sending: " + inputValue;
+  frag.appendChild(div);
+  messages.appendChild(frag);
   client.subscribe(`/${inputValue}`, (message) => {
     console.log(`Received: ${message.body}`);
     const frag = document.createDocumentFragment();
     const div = document.createElement("div");
-    div.innerHTML = inputValue + "Message" + message.body;
+    div.innerHTML = "Received for: " + inputValue + "Message" + message.body;
     frag.appendChild(div);
     messages.appendChild(frag);
   });
