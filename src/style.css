@@ -74,6 +74,8 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 button:hover {
   border-color: #646cff;
@@ -96,10 +98,12 @@ button:focus-visible {
   }
 }
 
-#input-box {
+.input-box {
   width: 500px;
   height: 50px;
   font-size: large;
+  padding-left: 10px;
+  margin-bottom: 10px;
 }
 
 #messages {

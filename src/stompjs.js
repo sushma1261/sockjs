@@ -7,7 +7,11 @@ let retryCount = 0;
 const maxRetries = 3;
 
 const inputBox = document.getElementById("input-box");
-const sendButton = document.getElementById("send");
+const inputContent = document.getElementById("input-content");
+const inputPublishPath = document.getElementById("input-path-publish");
+
+const subscribeButton = document.getElementById("subscribe");
+const publishButton = document.getElementById("publish");
 const messages = document.getElementById("messages");
 
 const client = new Client({
@@ -59,7 +63,7 @@ const client = new Client({
   },
 });
 
-sendButton.addEventListener("click", function () {
+subscribeButton.addEventListener("click", function () {
   const inputValue = inputBox.value;
   console.log(inputValue);
   const frag = document.createDocumentFragment();
@@ -67,26 +71,43 @@ sendButton.addEventListener("click", function () {
   div.innerHTML = "Sending: " + inputValue;
   frag.appendChild(div);
   messages.appendChild(frag);
-  client.subscribe(`/${inputValue}`, (message) => {
+  client.subscribe(`${inputValue}`, (message) => {
     console.log(`Received: ${message.body}`);
     const frag = document.createDocumentFragment();
     const div = document.createElement("div");
-    div.innerHTML = "Received for: " + inputValue + "Message" + message.body;
+    div.innerHTML =
+      "Received for: " + inputValue + " <br/ > Message: " + message.body;
     frag.appendChild(div);
     messages.appendChild(frag);
   });
 });
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("inputForm");
 
-  form.addEventListener("submit", function (event) {
-    // Prevent the form from submitting and reloading the page
-    event.preventDefault();
-
-    const inputValue = inputBox.value;
-    console.log(inputValue);
+publishButton.addEventListener("click", function () {
+  const inputValue = inputPublishPath.value;
+  const content = inputContent.value;
+  console.log(inputValue, content);
+  const frag = document.createDocumentFragment();
+  const div = document.createElement("div");
+  div.innerHTML = "Sending: " + inputValue + " Content: " + content;
+  frag.appendChild(div);
+  messages.appendChild(frag);
+  client.publish({
+    destination: inputValue,
+    body: { messages: content },
   });
 });
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const form = document.getElementById("inputForm");
+
+//   form.addEventListener("submit", function (event) {
+//     // Prevent the form from submitting and reloading the page
+//     event.preventDefault();
+
+//     const inputValue = inputBox.value;
+//     console.log(inputValue);
+//   });
+// });
 // Function to handle retries
 // const attemptReconnect = () => {
 //   if (retryCount < maxRetries) {

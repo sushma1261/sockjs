@@ -9,10 +9,11 @@
 
 <body>
   <h1>WebSocket Connection Test</h1>
-  <form id="inputForm">
-    <input type="text" id="input-box" placeholder="Enter subscription path (don't add / at beginning)">
-    <button id="send">Send</button>
-  </form>
+  <input type="text" class="input-box" id="input-box" placeholder="Enter subscription path">
+  <button id="subscribe">Subscribe</button>
+  <input type="text" class="input-box" id="input-path-publish" placeholder="Enter sending path">
+  <input type="text" class="input-box" id="input-content" placeholder="Enter body">
+  <button id="publish">Send</button>
   <h2>Messages</h2>
   <div id="messages"></div>
 
