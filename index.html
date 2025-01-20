@@ -9,7 +9,10 @@
 
 <body>
   <h1>WebSocket Connection Test</h1>
-  <button id="sendMessage">Send Message</button>
+  <form id="inputForm">
+    <input type="text" id="input-box" placeholder="Enter something">
+    <button id="send">Send</button>
+  </form>
   <div id="messages"></div>
 
   <script type="module" src="./src/stompjs.js"></script>
