@@ -9,4 +9,5 @@ To run:
 
 Comment out whichever you want to test.
 <script type="module" src="./src/stompjs.js"></script>
+
 <script type="module" src="./src/sockjs.js"></script>
